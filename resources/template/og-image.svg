@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+    <!-- 紙質米黃底 -->
+    <rect width="1200" height="630" fill="#F4ECDA"/>
+
+    <!-- 內框白色 + 深綠細邊（模擬手冊文件） -->
+    <rect x="50" y="50" width="1100" height="530" fill="#FFFFFF" stroke="#2C3E36" stroke-width="6"/>
+
+    <!-- 上方文件編號條 -->
+    <rect x="50" y="50" width="1100" height="56" fill="#1E2C25"/>
+    <text x="78" y="86" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="22" letter-spacing="4" fill="#F4ECDA">HRM-INTERNAL-2026 · MASTER FILE</text>
+    <text x="1122" y="86" text-anchor="end" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="22" letter-spacing="4" fill="#F4ECDA" opacity="0.65">CONFIDENTIAL</text>
+
+    <!-- 機密斜印章戳（右上） -->
+    <g transform="translate(990, 250) rotate(-12)">
+        <ellipse cx="0" cy="0" rx="100" ry="64" fill="none" stroke="#8B1A1A" stroke-width="7" opacity="0.75"/>
+        <text text-anchor="middle" y="22" font-family="'Noto Serif TC', 'PingFang TC', serif" font-weight="900" font-size="74" fill="#8B1A1A" opacity="0.82">機密</text>
+    </g>
+
+    <!-- CLASSIFIED 預標 -->
+    <text x="600" y="220" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="22" letter-spacing="8" fill="#D55A2E">CLASSIFIED · 限管理階層閱讀</text>
+
+    <!-- 主標題 -->
+    <text x="600" y="340" text-anchor="middle" font-family="'Noto Serif TC', 'PingFang TC', serif" font-weight="900" font-size="96" fill="#1E2C25" letter-spacing="6">慣老闆常用手法手冊</text>
+
+    <!-- 英文副標 -->
+    <text x="600" y="400" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="22" letter-spacing="6" fill="#6A6F66">MANAGER'S INTERNAL REFERENCE · 2026 EDITION</text>
+
+    <!-- 中文 tagline -->
+    <text x="600" y="455" text-anchor="middle" font-family="'Noto Serif TC', 'PingFang TC', serif" font-size="22" fill="#4F4D45">從凍薪話術到 PUA、從畫餅升遷到合約套牢——認真拆解每天被坑的劇本</text>
+
+    <!-- 底部 metadata 帶 -->
+    <rect x="50" y="524" width="1100" height="56" fill="#2C3E36"/>
+    <line x1="425" y1="524" x2="425" y2="580" stroke="#F4ECDA" stroke-width="1" opacity="0.25"/>
+    <line x1="775" y1="524" x2="775" y2="580" stroke="#F4ECDA" stroke-width="1" opacity="0.25"/>
+
+    <text x="237" y="548" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="4" fill="#F4ECDA" opacity="0.7">DOCS</text>
+    <text x="237" y="572" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-weight="bold" font-size="22" fill="#F4ECDA">030</text>
+
+    <text x="600" y="548" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="4" fill="#F4ECDA" opacity="0.7">SECTIONS</text>
+    <text x="600" y="572" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-weight="bold" font-size="22" fill="#F4ECDA">07</text>
+
+    <text x="963" y="548" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-size="13" letter-spacing="4" fill="#F4ECDA" opacity="0.7">REV.</text>
+    <text x="963" y="572" text-anchor="middle" font-family="'JetBrains Mono', 'Courier New', monospace" font-weight="bold" font-size="22" fill="#F4ECDA">2026.05</text>
+</svg>

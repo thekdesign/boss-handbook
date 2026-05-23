@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+    <!-- 墨綠圓角底（primary-700 #2C3E36） -->
+    <rect width="64" height="64" rx="10" fill="#2C3E36"/>
+
+    <!-- 大「機」字（米黃，serif、極黑） -->
+    <text x="32" y="48"
+          text-anchor="middle"
+          font-family="'Noto Serif TC', 'PingFang TC', 'Heiti TC', serif"
+          font-weight="900"
+          font-size="50"
+          fill="#F4ECDA">機</text>
+
+    <!-- 警示紅章戳點（右上角） -->
+    <circle cx="52" cy="12" r="5" fill="#D55A2E"/>
+</svg>
