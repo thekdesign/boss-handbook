@@ -237,7 +237,7 @@
 </template>
 
 <script>
-import {ref, computed, watch} from 'vue';
+import {ref, computed, watch, onMounted} from 'vue';
 import {useCaseStore} from 'stores/case/case';
 import {useFiltersStore} from 'stores/ui/filters';
 import {partList} from 'maps/common/Part';
@@ -276,18 +276,20 @@ export default {
             .slice(0, 6));
         const showLatest = computed(() => !filtersStore.searchQuery.trim() && filtersStore.activePartKey === '');
 
-        // 部別區塊的摺疊狀態（從 localStorage 還原，預設全展開）
+        // 部別區塊的摺疊狀態
+        // SSR-safe: 預設空物件、mount 後才從 localStorage 還原
         const COLLAPSED_KEY = 'bosshandbook.collapsedParts';
-        const loadCollapsed = () => {
+        const collapsedParts = ref({});
+        onMounted(() => {
             try {
                 const raw = localStorage.getItem(COLLAPSED_KEY);
-                return raw ? JSON.parse(raw) : {};
+                if (raw) collapsedParts.value = JSON.parse(raw);
             } catch {
-                return {};
+                /* localStorage 被禁用就忽略 */
             }
-        };
-        const collapsedParts = ref(loadCollapsed());
+        });
         watch(collapsedParts, (v) => {
+            if (typeof localStorage === 'undefined') return;
             try {
                 localStorage.setItem(COLLAPSED_KEY, JSON.stringify(v));
             } catch {

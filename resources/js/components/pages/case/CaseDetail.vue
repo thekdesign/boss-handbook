@@ -128,7 +128,8 @@
 </template>
 
 <script>
-import {computed, watch, onBeforeUnmount} from 'vue';
+import {computed, watch} from 'vue';
+import {useHead} from '@unhead/vue';
 import {useRoute, useRouter} from 'vue-router';
 import {useCaseStore} from 'stores/case/case';
 import {partMap} from 'maps/common/Part';
@@ -137,11 +138,6 @@ import StampBadge from 'components/common/StampBadge.vue';
 
 const SITE_TITLE = '🗂️ 慣老闆常用手法手冊';
 const DEFAULT_DESCRIPTION = '慣老闆常用手法手冊：揭穿職場那些「合法但缺德」的管理術。從凍薪話術到責任制濫用、PUA 到畫餅升遷，認真拆解你每天被坑的劇本。';
-
-const setMeta = (name, content) => {
-    const tag = document.querySelector(`meta[name="${name}"]`);
-    if (tag) tag.setAttribute('content', content);
-};
 
 export default {
     name: 'CaseDetail',
@@ -181,16 +177,27 @@ export default {
             ? sequentialList.value[currentIndex.value + 1]
             : null));
 
-        watch(caseItem, (c) => {
-            if (!c) return;
-            document.title = `${c.number} · ${c.title}｜慣老闆常用手法手冊`;
-            setMeta('description', `${c.title}｜${c.hook || c.question}`);
-            window.scrollTo({top: 0, behavior: 'smooth'});
-        }, {immediate: true});
+        // SSR + client 共用 head 管理：用 useHead 動態設定 title/description
+        useHead({
+            title: computed(() => {
+                const c = caseItem.value;
+                return c ? `${c.number} · ${c.title}｜慣老闆常用手法手冊` : SITE_TITLE;
+            }),
+            meta: [
+                {
+                    name: 'description',
+                    content: computed(() => {
+                        const c = caseItem.value;
+                        return c ? `${c.title}｜${c.hook || c.question}` : DEFAULT_DESCRIPTION;
+                    }),
+                },
+            ],
+        });
 
-        onBeforeUnmount(() => {
-            document.title = SITE_TITLE;
-            setMeta('description', DEFAULT_DESCRIPTION);
+        // client-only: 換頁時捲到頂端
+        watch(caseItem, () => {
+            if (import.meta.env.SSR) return;
+            window.scrollTo({top: 0, behavior: 'smooth'});
         });
 
         return {
