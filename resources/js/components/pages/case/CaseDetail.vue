@@ -92,6 +92,27 @@
             </div>
         </section>
 
+        <!-- 相關卷宗（see also） -->
+        <section v-if="relatedCases.length" class="mt-7 border border-paper-300 bg-paper-100">
+            <div class="flex items-center gap-2 border-b border-dashed border-paper-300 px-5 py-2">
+                <span class="font-mono text-[0.65rem] tracking-[0.2em] text-gray-500 uppercase">§ See Also</span>
+                <span class="font-serif font-bold text-sm text-gray-700">相關卷宗</span>
+                <span class="ml-auto font-mono text-[0.6rem] tracking-[0.18em] uppercase text-gray-500">CROSS REFERENCE</span>
+            </div>
+            <ul class="divide-y divide-dashed divide-paper-300">
+                <li v-for="r in relatedCases" :key="r.id">
+                    <RouterLink
+                        :to="{name: 'CASE_DETAIL', params: {caseId: r.id}}"
+                        class="flex items-baseline gap-3 px-5 py-3 transition-colors hover:bg-paper-200"
+                    >
+                        <span class="font-mono text-[0.62rem] tracking-[0.15em] text-gray-400 whitespace-nowrap">HRM-{{ relatedPart(r).abbrev }}-{{ r.number }}</span>
+                        <span class="text-base leading-none">{{ r.emoji }}</span>
+                        <span class="flex-1 font-serif text-sm font-medium text-primary-800">{{ r.title }}</span>
+                    </RouterLink>
+                </li>
+            </ul>
+        </section>
+
         <!-- 上下篇 -->
         <nav class="mt-9 grid gap-3 grid-cols-1 sm:grid-cols-2">
             <RouterLink
@@ -177,6 +198,14 @@ export default {
             ? sequentialList.value[currentIndex.value + 1]
             : null));
 
+        const relatedCases = computed(() => {
+            const ids = caseItem.value?.relatedIds || [];
+            return ids
+                .map((id) => caseStore.getById(id))
+                .filter((c) => c && c.id !== caseId.value);
+        });
+        const relatedPart = (c) => partMap.get(c.partKey) || {};
+
         // SSR + client 共用 head 管理：用 useHead 動態設定 title/description
         useHead({
             title: computed(() => {
@@ -210,6 +239,8 @@ export default {
             accent,
             prevCase,
             nextCase,
+            relatedCases,
+            relatedPart,
             goBack,
         };
     },
