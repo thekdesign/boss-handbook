@@ -9,7 +9,7 @@ export const partMap = new EnumMap(Part, {
         abbrev: 'SAL',
         emoji: '💰',
         accent: '#D55A2E',
-        blurb: '本薪 vs 獎金、名目包裝、避險條款——慣老闆收到的薪資結構操作攻略書。',
+        blurb: '本薪 vs 獎金、名目包裝、避險條款、「1 單位」解釋權——慣老闆收到的薪資結構操作攻略書。',
     },
     WORKTIME: {
         label: '工時與責任制',
@@ -41,7 +41,7 @@ export const partMap = new EnumMap(Part, {
         abbrev: 'LPH',
         emoji: '📜',
         accent: '#6E5C30',
-        blurb: '付款延展、懲罰性違約金、智財無償吞噬、單向任意終止——勞動合約只是入門，B2B 商務合約才是法務刀光劍影的真正戰場。',
+        blurb: '付款延展、懲罰性違約金、智財無償吞噬、單向任意終止；萬能百寶袋、動態流配、整體財務綜效——B2B 商務合約 + 勞動合約的字面陷阱大全。',
     },
     RETENTION: {
         label: '離職留人與報復',
