@@ -17,7 +17,7 @@ export const partMap = new EnumMap(Part, {
         abbrev: 'WTM',
         emoji: '⏰',
         accent: '#B14620',
-        blurb: '特休排定權奪回、強制催休、變形工時、全勤獎金重罰——把時間從你身上拿回去的法務操作。',
+        blurb: '特休奪回、強制催休、變形工時、全勤獎金重罰、加班事前申請制、週末數位封鎖——把時間從你身上拿回去的全套法務操作。',
     },
     MANIPULATION: {
         label: '情緒勒索與 PUA',
