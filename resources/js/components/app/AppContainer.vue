@@ -93,6 +93,17 @@
                     🐛 反映問題
                 </a>
             </div>
+            <div class="flex justify-center items-center gap-2 pt-1">
+                <span class="font-mono text-[0.62rem] tracking-[0.18em] text-gray-400 uppercase">§ Sister Site</span>
+                <a
+                    href="https://law-dictionary.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-primary-700 hover:text-seal-600 transition-colors underline-offset-2 hover:underline"
+                >
+                    ⚖️ 法律奇想終極全紀錄 ↗
+                </a>
+            </div>
         </footer>
     </div>
 </template>

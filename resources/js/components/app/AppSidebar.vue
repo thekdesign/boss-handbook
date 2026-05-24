@@ -59,6 +59,21 @@
             </button>
         </nav>
 
+        <!-- 友站 -->
+        <div class="flex flex-col gap-0.5 pt-4 border-t border-paper-300">
+            <h3 class="px-3 mb-1 font-mono text-[0.65rem] font-bold tracking-[0.2em] text-gray-500 uppercase">§ Sister Site</h3>
+            <a
+                href="https://law-dictionary.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2.5 rounded-lg px-3 py-2 text-gray-700 transition-colors hover:bg-paper-200 hover:text-primary-700"
+            >
+                <span class="text-base leading-none">⚖️</span>
+                <span class="flex-1 truncate">法律奇想終極全紀錄</span>
+                <span class="font-mono text-[0.62rem] tracking-[0.1em] text-gray-400">↗</span>
+            </a>
+        </div>
+
         <!-- 投稿 / 反映 -->
         <div class="flex flex-col gap-0.5 pt-4 border-t border-paper-300">
             <h3 class="px-3 mb-1 font-mono text-[0.65rem] font-bold tracking-[0.2em] text-gray-500 uppercase">§ Feedback</h3>

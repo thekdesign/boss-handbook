@@ -2,6 +2,14 @@
 /**
  * 卷末（EPILOGUE）
  * id = 99 是 HomeIndex / CaseDetail 的特殊識別碼（不出現在「最新」、不參與上下篇導航）
+ *
+ * 模板佔位符：
+ *   {{CASE_COUNT}} → 自動替換為 caseStore 中非 epilogue 案件總數
+ *   (在 CaseDetail.vue 的 displayItem computed 裡做替換)
+ *
+ * 之後加新批次時：
+ *   ✓ 數字（{{CASE_COUNT}}）會自動跟新
+ *   ✗ 分類關鍵字列舉（「SAL 的 X、WTM 的 Y...」）跟走廊低聲議論需手動同步
  */
 export const epilogue = {
     id: 99,
@@ -9,13 +17,13 @@ export const epilogue = {
     partKey: 'EPILOGUE',
     emoji: '🪞',
     title: '卷末——「這群年輕人，真有活力」',
-    hook: '70 道防火牆都已就位、緊箍咒都已套上——慣老闆的日常，就是品著咖啡看員工互相撕咬。',
+    hook: '{{CASE_COUNT}} 道防火牆都已就位、緊箍咒都已套上——慣老闆的日常，就是品著咖啡看員工互相撕咬。',
     question: '老闆，整套手冊讀完之後——你的日常會是什麼樣子？',
     answer: `老闆，恭喜您讀完這份卷宗。
 
 從 SALARY 的「首年獎金化」與「1 單位」陷阱、到 WORKTIME 的「特休協商」與 WFH 數位集中營、到 MANIPULATION 的「心理彈性引導」與主管 PUA、到 PROMISES 的「階梯式精算」、到 LOOPHOLE 的「合法套牢」與模糊定義術、到 RETENTION 的「無傷退場」與反敲詐、到 POLITICS 的「大智若愚」與工會分化、到 CRISIS 的媒體危機處理——
 
-**70 道防火牆已經就位、緊箍咒已經套上、文件編號已經歸檔**。
+**{{CASE_COUNT}} 道防火牆已經就位、緊箍咒已經套上、文件編號已經歸檔**。
 
 **【您的新日常】**
 
@@ -51,7 +59,7 @@ export const epilogue = {
 
 如果你不是老闆，而是讀著這本手冊的員工——
 
-你看完的這 70 篇，**不是諷刺小品**。是某個老闆**真的會收到**的法務建議書。
+你看完的這 {{CASE_COUNT}} 篇，**不是諷刺小品**。是某個老闆**真的會收到**的法務建議書。
 
 每一條手法、每一句話術、每一個合約陷阱——**都不是意外，是有人花錢算好的劇本**。
 
