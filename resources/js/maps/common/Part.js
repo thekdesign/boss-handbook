@@ -49,7 +49,7 @@ export const partMap = new EnumMap(Part, {
         abbrev: 'RTN',
         emoji: '🚪',
         accent: '#5F230E',
-        blurb: '留任獎金合約、合意終止、離職反報復防火牆——「畢業與分手」最凶險的最後一關，慣老闆的全套退場戰略。',
+        blurb: '留任獎金合約、合意終止、離職反報復防火牆、非自願離職反敲詐——「畢業與分手」最凶險的最後一關，慣老闆的全套退場戰略。',
     },
     POLITICS: {
         label: '分化與職場政治',
