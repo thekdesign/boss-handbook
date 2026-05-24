@@ -5,6 +5,7 @@ import {EnumMap} from 'libs/EnumMap';
 export const partMap = new EnumMap(Part, {
     SALARY: {
         label: '薪資獎金陷阱',
+        shortLabel: '薪資',
         abbrev: 'SAL',
         emoji: '💰',
         accent: '#D55A2E',
@@ -12,6 +13,7 @@ export const partMap = new EnumMap(Part, {
     },
     WORKTIME: {
         label: '工時與責任制',
+        shortLabel: '工時',
         abbrev: 'WTM',
         emoji: '⏰',
         accent: '#B14620',
@@ -19,6 +21,7 @@ export const partMap = new EnumMap(Part, {
     },
     MANIPULATION: {
         label: '情緒勒索與 PUA',
+        shortLabel: 'PUA',
         abbrev: 'MNP',
         emoji: '🎭',
         accent: '#8B3517',
@@ -26,6 +29,7 @@ export const partMap = new EnumMap(Part, {
     },
     PROMISES: {
         label: '升遷與畫餅',
+        shortLabel: '升遷',
         abbrev: 'PRM',
         emoji: '🥕',
         accent: '#C99A1B',
@@ -33,6 +37,7 @@ export const partMap = new EnumMap(Part, {
     },
     LOOPHOLE: {
         label: '合約與法規規避',
+        shortLabel: '合約',
         abbrev: 'LPH',
         emoji: '📜',
         accent: '#6E5C30',
@@ -40,6 +45,7 @@ export const partMap = new EnumMap(Part, {
     },
     RETENTION: {
         label: '離職留人與報復',
+        shortLabel: '離職',
         abbrev: 'RTN',
         emoji: '🚪',
         accent: '#5F230E',
@@ -47,6 +53,7 @@ export const partMap = new EnumMap(Part, {
     },
     POLITICS: {
         label: '分化與職場政治',
+        shortLabel: '政治',
         abbrev: 'PLT',
         emoji: '👥',
         accent: '#354B3F',

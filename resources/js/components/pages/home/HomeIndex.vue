@@ -92,27 +92,28 @@
             <div class="font-mono text-[0.65rem] tracking-[0.2em] text-gray-500 uppercase mb-2">§ INDEX · 卷宗分類</div>
             <div class="flex flex-wrap gap-1.5">
                 <button
-                    class="inline-flex items-center gap-1.5 border px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors"
+                    class="inline-flex items-center gap-1.5 border px-2.5 py-1.5 sm:px-3 text-xs sm:text-sm font-medium transition-colors"
                     :class="filtersStore.activePartKey === ''
                         ? 'border-primary-700 bg-primary-700 text-paper-100'
                         : 'border-paper-300 bg-white text-gray-700 hover:border-primary-700 hover:text-primary-700'"
                     @click="filtersStore.activePartKey = ''"
                 >
-                    <span class="font-mono text-[0.65rem] tracking-[0.15em] opacity-70">ALL</span>
+                    <span class="hidden sm:inline font-mono text-[0.65rem] tracking-[0.15em] opacity-70">ALL</span>
                     <span>全部</span>
                 </button>
                 <button
                     v-for="p in partList"
                     :key="p.key"
-                    class="inline-flex items-center gap-1.5 border px-3 py-1.5 text-xs sm:text-sm font-medium transition-colors"
+                    class="inline-flex items-center gap-1.5 border px-2.5 py-1.5 sm:px-3 text-xs sm:text-sm font-medium transition-colors"
                     :class="filtersStore.activePartKey === p.key ? 'text-paper-100' : 'border-paper-300 bg-white text-gray-700'"
                     :style="filtersStore.activePartKey === p.key
                         ? {background: p.accent, borderColor: p.accent}
                         : {'--hover-accent': p.accent}"
                     @click="filtersStore.activePartKey = p.key"
                 >
-                    <span class="font-mono text-[0.65rem] tracking-[0.15em] opacity-70">{{ p.abbrev }}</span>
-                    <span>{{ p.emoji }} {{ p.label }}</span>
+                    <span class="hidden sm:inline font-mono text-[0.65rem] tracking-[0.15em] opacity-70">{{ p.abbrev }}</span>
+                    <span class="sm:hidden">{{ p.emoji }} {{ p.shortLabel }}</span>
+                    <span class="hidden sm:inline">{{ p.emoji }} {{ p.label }}</span>
                 </button>
             </div>
         </section>
