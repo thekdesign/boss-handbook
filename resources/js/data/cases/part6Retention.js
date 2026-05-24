@@ -241,6 +241,7 @@ export const part6Retention = [
         id: 70,
         number: '08',
         partKey: 'RETENTION',
+        relatedIds: [69, 68, 79],
         emoji: '🍬',
         title: '「Reference Check 我幫你說好話」糖果——把拒絕勒索包裝成「保護你前途」',
         hook: '嚇完他一身冷汗、再給一顆糖：「未來新公司打 Reference 我幫你說好話」——他會感激涕零自願離職。',
