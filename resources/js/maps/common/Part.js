@@ -57,7 +57,7 @@ export const partMap = new EnumMap(Part, {
         abbrev: 'PLT',
         emoji: '👥',
         accent: '#354B3F',
-        blurb: '組織扁平化架空、末位淘汰防團結、職務輪調放逐、層層授權祭旗——大智若愚是職場政治的最高境界。',
+        blurb: '組織扁平化架空、末位淘汰防團結、工會合法收編、用民主玩死民主——大智若愚是職場政治的最高境界。',
     },
     EPILOGUE: {
         label: '卷末',
