@@ -26,6 +26,13 @@
                 <span class="font-mono text-[0.65rem] tracking-[0.15em] text-gray-500 uppercase">
                     {{ partAbbrev }} · {{ caseItem.number }}
                 </span>
+                <span
+                    v-if="caseItem.kind === 'overview'"
+                    class="ml-auto inline-flex items-center border border-gold-500 bg-gold-100 px-1.5 py-px font-mono text-[0.58rem] tracking-[0.18em] uppercase text-gold-700"
+                    title="對照表 / 系列收束篇"
+                >
+                    § Overview
+                </span>
             </div>
 
             <h3 class="mt-2 mb-2 font-serif text-base sm:text-[1.05rem] font-bold leading-snug text-gray-900">

@@ -223,6 +223,7 @@ export const part6Retention = [
         id: 69,
         number: '07',
         partKey: 'RETENTION',
+        kind: 'overview',
         emoji: '🪤',
         title: '自願離職反敲詐對照表——3 種員工套路對應的法律反制',
         hook: '不交接威脅 / 偷錄音 / 離職後爆料——3 種套路都被法務武器粉碎。',

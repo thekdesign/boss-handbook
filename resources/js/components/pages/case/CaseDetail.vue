@@ -42,9 +42,16 @@
 
             <!-- 標題區塊 -->
             <div class="relative px-5 sm:px-7 py-6">
-                <div class="font-mono text-[0.65rem] tracking-[0.2em] text-gray-500 mb-1.5 uppercase">
+                <div class="font-mono text-[0.65rem] tracking-[0.2em] text-gray-500 mb-1.5 uppercase flex items-center gap-2 flex-wrap">
                     <span v-if="isEpilogue">END OF HANDBOOK / {{ partAbbrev }}</span>
                     <span v-else>DOC · {{ caseItem.number }} / {{ partAbbrev }}</span>
+                    <span
+                        v-if="caseItem.kind === 'overview'"
+                        class="inline-flex items-center border border-gold-500 bg-gold-100 px-1.5 py-px text-[0.6rem] tracking-[0.18em] text-gold-700"
+                        title="對照表 / 系列收束篇"
+                    >
+                        § Overview
+                    </span>
                 </div>
                 <h1 class="m-0 mb-3 font-serif text-2xl sm:text-[1.7rem] font-black leading-snug text-primary-800">
                     <span class="mr-2">{{ caseItem.emoji }}</span>{{ caseItem.title }}

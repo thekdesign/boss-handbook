@@ -107,6 +107,7 @@ export const part4Promises = [
         id: 20,
         number: '04',
         partKey: 'PROMISES',
+        kind: 'overview',
         relatedIds: [17, 18, 19, 21],
         emoji: '📊',
         title: '升遷沙盤推演——4 種真實意圖對應的「合法管理包裝」',

@@ -41,7 +41,11 @@ export default {
     },
     computed: {
         rendered() {
-            return marked.parse(this.source || '');
+            const html = marked.parse(this.source || '');
+            // 對照表很多 4 欄寬，mobile 直接 overflow viewport——包一層 wrapper 提供橫向 scroll
+            return html
+                .replace(/<table>/g, '<div class="md-table-wrap"><table>')
+                .replace(/<\/table>/g, '</table></div>');
         },
     },
 };
@@ -74,8 +78,11 @@ export default {
     :deep(li ol), :deep(li ul) { @apply my-1.5; }
     :deep(li > strong:first-child) { @apply text-primary-700; }
 
+    :deep(.md-table-wrap) {
+        @apply my-5 overflow-x-auto rounded-xl shadow-[0_1px_6px_rgba(31,48,87,0.06)];
+    }
     :deep(table) {
-        @apply w-full my-5 border-collapse text-[0.92rem] bg-white rounded-xl overflow-hidden shadow-[0_1px_6px_rgba(31,48,87,0.06)];
+        @apply w-full min-w-[480px] border-collapse text-[0.92rem] bg-white;
     }
     :deep(thead) { @apply bg-primary-700 text-paper-100; }
     :deep(th) { @apply px-3.5 py-2.5 text-left font-bold; }
