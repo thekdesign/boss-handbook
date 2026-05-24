@@ -21,7 +21,7 @@ export const epilogue = {
     question: '老闆，整套手冊讀完之後——你的日常會是什麼樣子？',
     answer: `老闆，恭喜您讀完這份卷宗。
 
-從 SALARY 的「首年獎金化」與「1 單位」陷阱、到 WORKTIME 的「特休協商」與 WFH 數位集中營、到 MANIPULATION 的「心理彈性引導」與主管 PUA、到 PROMISES 的「階梯式精算」、到 LOOPHOLE 的「合法套牢」與模糊定義術、到 RETENTION 的「無傷退場」與反敲詐、到 POLITICS 的「大智若愚」與工會分化、到 CRISIS 的媒體危機處理——
+從 SALARY 的「首年獎金化」與「1 單位」陷阱、到 WORKTIME 的「特休協商」與 WFH 數位集中營、到 MANIPULATION 的「心理彈性引導」與主管 PUA、到 PROMISES 的「階梯式精算」、到 LOOPHOLE 的「合法套牢」、模糊定義術與派遣免洗化、到 RETENTION 的「無傷退場」與反敲詐、到 POLITICS 的「大智若愚」、工會分化與「杯酒釋兵權」、到 CRISIS 的媒體危機處理——
 
 **{{CASE_COUNT}} 道防火牆已經就位、緊箍咒已經套上、文件編號已經歸檔**。
 
@@ -42,6 +42,7 @@ export const epilogue = {
 - 「為什麼那份合約的違約金條款這麼重？」
 - 「為什麼週末 Slack 突然發不出訊息？」
 - 「為什麼新人簽的合約裡有『動態機動調整』那行字？」
+- 「為什麼隔壁那個派遣的小張，做一樣的事卻沒有下午茶？」
 
 您只需要露出**慈祥而疲憊的微笑**，輕聲說一句：
 
