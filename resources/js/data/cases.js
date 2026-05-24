@@ -5,6 +5,7 @@ import {part4Promises} from './cases/part4Promises';
 import {part5Loophole} from './cases/part5Loophole';
 import {part6Retention} from './cases/part6Retention';
 import {part7Politics} from './cases/part7Politics';
+import {part8Crisis} from './cases/part8Crisis';
 import {epilogue} from './cases/epilogue';
 
 export const cases = [
@@ -15,5 +16,6 @@ export const cases = [
     ...part5Loophole,
     ...part6Retention,
     ...part7Politics,
+    ...part8Crisis,
     epilogue,
 ];

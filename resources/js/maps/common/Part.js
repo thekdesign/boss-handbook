@@ -25,7 +25,7 @@ export const partMap = new EnumMap(Part, {
         abbrev: 'MNP',
         emoji: '🎭',
         accent: '#8B3517',
-        blurb: '「心理彈性激勵機制」「高情商團隊共識營造」「組織行為導正術」——慣老闆的法務不叫 PUA，但操作手法都在這裡。',
+        blurb: '「心理彈性激勵機制」「高情商團隊共識營造」「領導力格局教育」——PUA 不限於對員工，連中階主管都能被責任轉嫁；慣老闆的法務不叫它 PUA，但操作手法都在這裡。',
     },
     PROMISES: {
         label: '升遷與畫餅',
@@ -58,6 +58,14 @@ export const partMap = new EnumMap(Part, {
         emoji: '👥',
         accent: '#354B3F',
         blurb: '組織扁平化架空、末位淘汰防團結、工會合法收編、用民主玩死民主——大智若愚是職場政治的最高境界。',
+    },
+    CRISIS: {
+        label: '危機與名譽防禦',
+        shortLabel: '危機',
+        abbrev: 'CRS',
+        emoji: '🧯',
+        accent: '#9C1F1F',
+        blurb: '官方聲明稿、勞檢出勤補簽、資安稽核抓內鬼、ESG 漂白——當公司被爆料、勞檢上門時的全套媒體 / 法務防禦劇本。',
     },
     EPILOGUE: {
         label: '卷末',
