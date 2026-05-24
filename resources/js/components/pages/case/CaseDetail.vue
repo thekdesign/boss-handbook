@@ -92,12 +92,12 @@
             </div>
         </section>
 
-        <!-- 相關卷宗（see also） -->
+        <!-- 相關卷宗（see also）— 手動 relatedIds 優先，沒填就 fallback 同分類 -->
         <section v-if="relatedCases.length" class="mt-7 border border-paper-300 bg-paper-100">
             <div class="flex items-center gap-2 border-b border-dashed border-paper-300 px-5 py-2">
                 <span class="font-mono text-[0.65rem] tracking-[0.2em] text-gray-500 uppercase">§ See Also</span>
-                <span class="font-serif font-bold text-sm text-gray-700">相關卷宗</span>
-                <span class="ml-auto font-mono text-[0.6rem] tracking-[0.18em] uppercase text-gray-500">CROSS REFERENCE</span>
+                <span class="font-serif font-bold text-sm text-gray-700">{{ isRelatedFallback ? '同類卷宗' : '相關卷宗' }}</span>
+                <span class="ml-auto font-mono text-[0.6rem] tracking-[0.18em] uppercase text-gray-500">{{ isRelatedFallback ? 'SAME SECTION' : 'CROSS REFERENCE' }}</span>
             </div>
             <ul class="divide-y divide-dashed divide-paper-300">
                 <li v-for="r in relatedCases" :key="r.id">
@@ -198,12 +198,23 @@ export default {
             ? sequentialList.value[currentIndex.value + 1]
             : null));
 
+        // related = 手動填的 relatedIds；沒填就 fallback 同 partKey 其他卷宗（用 id 當 offset deterministic 取 3 篇）
         const relatedCases = computed(() => {
-            const ids = caseItem.value?.relatedIds || [];
-            return ids
-                .map((id) => caseStore.getById(id))
-                .filter((c) => c && c.id !== caseId.value);
+            const c = caseItem.value;
+            if (!c) return [];
+            const ids = c.relatedIds || [];
+            if (ids.length > 0) {
+                return ids
+                    .map((id) => caseStore.getById(id))
+                    .filter((r) => r && r.id !== c.id);
+            }
+            const siblings = caseStore.list
+                .filter((r) => r.partKey === c.partKey && r.id !== c.id && r.id !== 99);
+            if (siblings.length <= 3) return siblings;
+            const offset = c.id % siblings.length;
+            return [...siblings.slice(offset), ...siblings.slice(0, offset)].slice(0, 3);
         });
+        const isRelatedFallback = computed(() => !(caseItem.value?.relatedIds?.length));
         const relatedPart = (c) => partMap.get(c.partKey) || {};
 
         // SSR + client 共用 head 管理：用 useHead 動態設定 title/description
@@ -240,6 +251,7 @@ export default {
             prevCase,
             nextCase,
             relatedCases,
+            isRelatedFallback,
             relatedPart,
             goBack,
         };

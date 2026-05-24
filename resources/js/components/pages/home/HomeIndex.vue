@@ -53,6 +53,39 @@
             </div>
         </section>
 
+        <!-- 導讀：新讀者入口 -->
+        <section
+            v-if="showLatest"
+            class="mb-6 border-2 border-dashed border-primary-700 bg-paper-100 px-4 py-4 sm:px-5 sm:py-5"
+        >
+            <div class="flex items-baseline justify-between gap-2 mb-2 flex-wrap">
+                <div class="flex items-baseline gap-2">
+                    <span class="font-mono text-[0.65rem] tracking-[0.2em] text-gray-500 uppercase">§ Reading Guide</span>
+                    <span class="font-serif font-bold text-sm sm:text-base text-primary-800">導讀</span>
+                </div>
+                <span class="font-mono text-[0.6rem] tracking-[0.15em] text-gray-500 uppercase">FOR NEW READERS</span>
+            </div>
+            <p class="m-0 mb-3 text-sm text-gray-700 leading-relaxed">
+                本手冊以「<strong>老闆視角的法務建議書</strong>」為敘事框架，拆解台灣職場常見的「<strong>合法但缺德</strong>」管理術——
+                <strong class="text-seal-700">內容是諷刺、不是教戰手冊</strong>。目的是讓員工讀懂老闆會收到的劇本長什麼樣，看完卷末破題才會理解全書語境。
+            </p>
+            <div class="font-mono text-[0.62rem] tracking-[0.18em] text-gray-500 uppercase mb-2">§ Featured · 不知從哪看起就從這 5 篇</div>
+            <ul class="grid sm:grid-cols-2 gap-1.5">
+                <li v-for="c in featured" :key="c.id">
+                    <RouterLink
+                        :to="{name: 'CASE_DETAIL', params: {caseId: c.id}}"
+                        class="flex items-baseline gap-2 border border-paper-300 bg-white px-3 py-2 text-sm transition-all hover:border-primary-700 hover:-translate-y-0.5"
+                    >
+                        <span class="font-mono text-[0.6rem] tracking-[0.15em] text-gray-400 whitespace-nowrap">
+                            HRM-{{ featuredPart(c).abbrev }}-{{ c.number }}
+                        </span>
+                        <span class="text-base leading-none">{{ c.emoji }}</span>
+                        <span class="font-serif font-medium text-primary-800 truncate">{{ c.title }}</span>
+                    </RouterLink>
+                </li>
+            </ul>
+        </section>
+
         <!-- 投稿 CTA：警示貼紙風 -->
         <a
             href="https://forms.gle/UBzoXfrQSRkCgHrS8"
@@ -240,7 +273,7 @@
 import {ref, computed, watch, onMounted} from 'vue';
 import {useCaseStore} from 'stores/case/case';
 import {useFiltersStore} from 'stores/ui/filters';
-import {partList} from 'maps/common/Part';
+import {partList, partMap} from 'maps/common/Part';
 import CaseCard from 'components/common/CaseCard.vue';
 import StampBadge from 'components/common/StampBadge.vue';
 
@@ -275,6 +308,14 @@ export default {
             .sort((a, b) => b.id - a.id)
             .slice(0, 6));
         const showLatest = computed(() => !filtersStore.searchQuery.trim() && filtersStore.activePartKey === '');
+
+        // 導讀精選 5 篇：覆蓋 4 個主要分類的代表作
+        // 1 首年獎金化 / 56 加班事前申請 / 11 打壓相對論 / 45 1 單位陷阱 / 71 杯酒釋兵權
+        const FEATURED_IDS = [1, 56, 11, 45, 71];
+        const featured = computed(() => FEATURED_IDS
+            .map((id) => caseStore.getById(id))
+            .filter(Boolean));
+        const featuredPart = (c) => partMap.get(c.partKey) || {};
 
         // 部別區塊的摺疊狀態
         // SSR-safe: 預設空物件、mount 後才從 localStorage 還原
@@ -324,6 +365,8 @@ export default {
             searchMatchCount,
             latestCases,
             showLatest,
+            featured,
+            featuredPart,
             isCollapsed,
             togglePart,
             epilogue,
