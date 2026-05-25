@@ -74,13 +74,13 @@
                 <li v-for="c in featured" :key="c.id">
                     <RouterLink
                         :to="{name: 'CASE_DETAIL', params: {caseId: c.id}}"
-                        class="flex items-baseline gap-2 border border-paper-300 bg-white px-3 py-2 text-sm transition-all hover:border-primary-700 hover:-translate-y-0.5"
+                        class="flex items-baseline gap-2 overflow-hidden border border-paper-300 bg-white px-3 py-2 text-sm transition-all hover:border-primary-700 hover:-translate-y-0.5"
                     >
-                        <span class="font-mono text-[0.6rem] tracking-[0.15em] text-gray-400 whitespace-nowrap">
+                        <span class="shrink-0 font-mono text-[0.6rem] tracking-[0.15em] text-gray-400 whitespace-nowrap">
                             HRM-{{ featuredPart(c).abbrev }}-{{ c.number }}
                         </span>
-                        <span class="text-base leading-none">{{ c.emoji }}</span>
-                        <span class="font-serif font-medium text-primary-800 truncate">{{ c.title }}</span>
+                        <span class="shrink-0 text-base leading-none">{{ c.emoji }}</span>
+                        <span class="min-w-0 flex-1 truncate font-serif font-medium text-primary-800">{{ c.title }}</span>
                     </RouterLink>
                 </li>
             </ul>
